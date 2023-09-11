@@ -5,69 +5,46 @@ import java.util.Scanner;
 public class Part1Syntax {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        System.out.println("enter two numbers, please:");
 
-        System.out.println("enter 2 numbers pls: ");
+        int num1 = getUserInput(in);
+        int num2 = getUserInput(in);
 
-        int num1 = in.nextInt();
-        int num2 = in.nextInt();
-        int sum = add(num1, num2);
+        int sum = calculateSum(num1, num2);
+        printResult("sum", num1, num2, sum);
 
-        System.out.println("The sum of " + num1 + " and " + num2 + " is " + sum);
+        System.out.println("type two more values:");
+        int value1 = getUserInput(in);
+        int value2 = getUserInput(in);
 
-        System.out.println("type 2 values: ");
-        int value1 = in.nextInt();
-        int value2 = in.nextInt();
+        double product = calculateProduct(value1, value2);
+        printResult("product", value1, value2, product);
 
-        double product = multiply(value1, value2);
-        printMessage("Hello, World!");
+        printMessage("Goodbye, World!");
 
-
-        System.out.println("Product: " + product);
+        in.close();
     }
 
+    public static int getUserInput(Scanner in) {
+        return in.nextInt();
+    }
+
+    public static int calculateSum(int a, int b) {
+        return a + b;
+    }
+
+    public static double calculateProduct(int x, int y) {
+        return x * y;
+    }
+
+    public static void printResult(String operation, int num1, int num2, double result) {
+        System.out.println("The " + operation + " of " + num1 + " and " + num2 + " is " + result);
+    }
 
     public static void printMessage(String message) {
         System.out.println(message);
     }
-
-
-    public static int add(int a, int b) {
-        return a + b;
-    }
-
-
-    public static double multiply(double x, double y) {
-        return x * y;
-    }
-
-
-    public static void myMethodNumberTwo() {
-        System.out.println("Inside myMethodNumberTwo");
-    }
-
-    public static double myMethodNumberThree(int num) {
-        System.out.println("Inside myMethodNumberThree");
-        return num * 1.5;
-    }
-
-    public static void myMethod() {
-        System.out.println("Inside myMethod");
-        myMethodNumberTwo();
-        double result = myMethodNumberThree(10);
-        System.out.println("Result from myMethodNumberThree: " + result);
-    }
-
-    public static void myMethodNumber1() {
-        System.out.println("Inside myMethodNumber1");
-    }
-
-    public static void myMethodNumber2() {
-        System.out.println("Inside myMethodNumber2");
-    }
-
-    public static void myMethod2() {
-        System.out.println("Inside myMethod2");
-        myMethodNumber1();
-    }
 }
+
+
 
